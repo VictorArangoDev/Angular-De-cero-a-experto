@@ -25,7 +25,6 @@ addCharacter() {
     power: this.power()
   }
 
-  // this.characters.update((list) => [...list, newCharacter]);
   this.newcharacter.emit(newCharacter);
   this.resetFields();
 }
