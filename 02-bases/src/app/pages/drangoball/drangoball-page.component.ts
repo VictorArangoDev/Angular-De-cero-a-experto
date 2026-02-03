@@ -8,21 +8,18 @@ interface Character{
 
 
 @Component({
-  selector: 'app-drangoball',
-  imports: [],
-  templateUrl: './drangoball.html',
-  styleUrl: './drangoball.css',
+  templateUrl: './drangoball-page.component.html',
 })
-export class Drangoball {
+export class DrangoballPageComponent {
 
-  name = signal('Gohan');
-  power = signal(100);
+  name = signal('');
+  power = signal(0);
 
   characters = signal<Character[]>([
     { id: 1, name: 'Goku', power: 9001 },
-    { id: 2, name: 'Vegeta', power: 8000 },
-    { id: 3, name: 'Piccolo', power: 3000 },
-    { id: 4, name: 'Yamcha', power: 500 },
+    // { id: 2, name: 'Vegeta', power: 8000 },
+    // { id: 3, name: 'Piccolo', power: 3000 },
+    // { id: 4, name: 'Yamcha', power: 500 },
 
   ]);
 
