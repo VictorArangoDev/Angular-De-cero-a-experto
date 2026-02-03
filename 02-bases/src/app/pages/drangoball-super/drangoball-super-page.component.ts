@@ -17,5 +17,10 @@ export class DrangoballSuperPageComponent {
   ]);
 
 
+addCharacter(newCharacter : Character) {
+  this.characters.update((list) => [...list, newCharacter]);
+}
+
+
 
 }
