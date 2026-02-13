@@ -4,7 +4,17 @@ import { ByCapitalPage } from './pages/by-capital-page/by-capital-page';
 export const countryRoutes: Routes = [
   {
     path: '',
-    component: ByCapitalPage
+    component: ByCapitalPage,
+    children:[
+      {
+        path: 'by-capital',
+        component: ByCapitalPage,
+      },
+      {
+        path: '**',
+        redirectTo: 'by-capital'
+      }
+    ]
   },
 
 ];
