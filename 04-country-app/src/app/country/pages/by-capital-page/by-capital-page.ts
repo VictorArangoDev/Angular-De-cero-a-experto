@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CountryList } from "../../components/country-list/country-list/country-list";
 import { SearchInput } from "../../components/search-input/search-input/search-input";
+import { CountryService } from '../../services/country';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -10,9 +12,11 @@ import { SearchInput } from "../../components/search-input/search-input/search-i
 })
 export class ByCapitalPage {
 
+  countryService =  inject(CountryService);
 
-  onSearch( value: string){
-    console.log({value});
+  onSearch( query: string){
+  this.countryService.search(query).subscribe((resp) => console.log(resp));
+
   }
 
 }

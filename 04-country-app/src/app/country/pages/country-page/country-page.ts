@@ -3,7 +3,7 @@ import { CountryLayout } from "../../layouts/CountryLayout/CountryLayout";
 
 @Component({
   selector: 'app-country-page',
-  imports: [CountryLayout],
+  imports: [],
   templateUrl: './country-page.html',
 })
 export class CountryPage { }
