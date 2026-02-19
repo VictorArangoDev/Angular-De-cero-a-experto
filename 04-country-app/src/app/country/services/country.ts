@@ -27,4 +27,20 @@ export class CountryService {
     )
  }
 
+
+ searchByCountry(query: string) :Observable<Country[]>{
+  query = query.toLocaleLowerCase();
+  return this.http.get<RESTCountry[]>(`${KEY_URL}/name/${query}`)
+  .pipe(
+    map((resp) => CountryMapper.mapRestCountryArrayToCountryArray(resp)),
+    catchError( error  =>{
+      console.log('Error fetching Data', error );
+      return throwError(
+        () => new Error(`No se pudo obtener la el pais con el query :  ${query}`)
+      )
+    })
+  )
+ }
+
+
 }
