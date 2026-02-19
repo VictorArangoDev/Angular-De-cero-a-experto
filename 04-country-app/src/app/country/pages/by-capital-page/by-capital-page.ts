@@ -1,8 +1,9 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, resource, signal } from '@angular/core';
 import { CountryList } from "../../components/country-list/country-list/country-list";
 import { SearchInput } from "../../components/search-input/search-input/search-input";
 import { CountryService } from '../../services/country';
 import { Country } from '../../interfaces/country-interface';
+import { firstValueFrom } from 'rxjs';
 
 
 @Component({
@@ -13,24 +14,42 @@ import { Country } from '../../interfaces/country-interface';
 export class ByCapitalPage {
 
   countryService =  inject(CountryService);
+  query = signal('')
 
-  isLoading = signal(false);
-  isError = signal<string | null>(null);
-  countries = signal<Country[]>([]);
+  countryResouce = resource({
+    params: () => ({ query: this.query() }),
+    loader: async ({ params }) =>{
+      if (!params.query) return [];
+      return await firstValueFrom(
+        this.countryService.searchByCapital(params.query)
+      )
+    }
+  })
 
 
-  onSearch( query: string){
-    if(this.isLoading()) return true;
+  // isLoading = signal(false);
+  // isError = signal<string | null>(null);
+  // countries = signal<Country[]>([]);
 
-    this.isLoading.set(true);
-    this.isError.set(null);
 
-    return this.countryService.searchByCapital(query).subscribe((countries) =>{
-      this.isLoading.set(false);
-      this.countries.set(countries);
-      console.log(countries);
-    });
+  // onSearch( query: string){
+  //   if(this.isLoading()) return true;
 
-  }
+  //   this.isLoading.set(true);
+  //   this.isError.set(null);
+
+  //   return this.countryService.searchByCapital(query).subscribe({
+  //     next: (countries) => {
+  //       this.isLoading.set(false);
+  //       this.countries.set(countries);
+  //     },
+  //     error:(err) => {
+  //       this.isLoading.set(false);
+  //       this.countries.set([]);
+  //       this.isError.set(err)
+  //     },
+  //   });
+
+  // }
 
 }
