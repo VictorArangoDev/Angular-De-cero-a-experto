@@ -9,7 +9,10 @@ import { RouterLink } from "@angular/router";
   templateUrl: './country-list.html',
 })
 export class CountryList {
+  countries    =  input.required<Country[]>()
 
-  countries =  input.required<Country[]>()
-
+  errorMessage = input<string | undefined | null| unknown >();
+  isLoading    = input<boolean>(false);
+  isEmpty      = input<boolean>(false)
+;
 }

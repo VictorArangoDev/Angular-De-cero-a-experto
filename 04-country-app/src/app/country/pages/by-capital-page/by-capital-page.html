@@ -1,11 +1,11 @@
-
 <country-search-input placeholder="Buscar por capital"
 (value)="query.set($event)"
 />
 
-country-list
- @if (countryResouce.error()) {
-  <h3>{{countryResouce.error()}}</h3>
- }@if( countryResouce.hasValue()){
-   <country-list [countries]="countryResouce.value()!" />
- }
+
+<country-list
+  [countries]="countryResouce.hasValue() ? countryResouce.value() : []"
+  [isLoading]="countryResouce.isLoading()"
+  [errorMessage]="countryResouce.error()"
+  [isEmpty]="countryResouce.hasValue() && countryResouce.value().length === 0"
+/>
