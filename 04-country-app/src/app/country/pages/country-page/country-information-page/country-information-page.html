@@ -1,0 +1,70 @@
+<section class="w-full flex-col">
+
+  <div class="relative h-96 w-full overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10"></div>
+    <img class="w-full h-full object-cover " data-alt="Official flag of Honduras waving in wind"
+      [src]="country().flagSvg" />
+    <div class="absolute bottom-6 left-6 right-6 z-20 flex items-end justify-between">
+      <div class="flex items-center gap-4">
+        <div class="bg-white p-2 rounded-xl shadow-lg border border-slate-200">
+          <img class="size-16 md:size-20 object-contain" data-alt="Coat of Arms of the Republic of Honduras"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBaBRPaQPhN3VTzbcf9hq6shouk4bDdTXStcKazuMmzC0OdWwL9oyXcAsxYSv10xwKO6XxA9FWsaFlaPG7dW8OaxxFF-EUgHapYs8GrxL6pP4Q2YCRTx8T4rRRgmwo_jV8Abd_WovasW-jXufxZRxFa4uVRofKliZr9af3gEfA74LYN7g2BGMKtrqlH8cBIEpsQrjc4iAtItFjuu7g9s2O3JawVOMYJcFt4E-6hSe-NdkbvVE19b_wKBImsgrX9Amdt8vgqbwpOXvzs" />
+        </div>
+        <div class="text-white">
+          <div class="flex items-center gap-2 mb-1">
+            <span
+              class="px-2 py-0.5 bg-primary rounded text-[10px] font-bold uppercase tracking-wider">Independent</span>
+            <span class="px-2 py-0.5 bg-emerald-500 rounded text-[10px] font-bold uppercase tracking-wider">UN
+              Member</span>
+          </div>
+          <h1 class="text-2xl md:text-3xl font-bold">{{country().nameCountry}}</h1>
+          <p class="text-slate-300 text-sm italic">Capital: {{country().capital}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scrollable Content Section -->
+  <div class="flex-1 overflow-y-auto p-6 space-y-8">
+    <!-- Quick Technical Grid -->
+    <section>
+      <h4 class="text-xs font-bold text-primary uppercase tracking-widest mb-4 flex items-center gap-2">
+        Expecificaciones Tecnicas </h4>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div class="stat">
+          <div class="stat-title">ISO CCA2</div>
+          <div class="stat-value">{{country().cca2}}</div>
+        </div>
+         <div class="stat">
+          <div class="stat-title">ISO CCA3</div>
+          <div class="stat-value">{{country().cca3}}</div>
+        </div>
+        <div class="stat">
+          <div class="stat-title">TDL</div>
+          <div class="stat-value">{{country().tld}}</div>
+        </div>
+        <div class="stat">
+          <div class="stat-title">FIFA</div>
+          <div class="stat-value">{{country().fifa}}</div>
+        </div>
+      </div>
+    <!-- <section>
+      <h4 class="text-xs font-bold text-primary uppercase tracking-widest mb-4 flex items-center gap-2">
+        Expecificaciones Tecnicas </h4>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+        <div class="stat">
+          <div class="stat-title">Lenguaje</div>
+          <div class="stat-value">{{country().languages}}</div>
+        </div>
+        <div class="stat">
+          <div class="stat-title">Poblacion Total</div>
+          <div class="stat-value">{{country().population | number}} </div>
+          <div class="stat-desc">↗︎ 400 (22%)</div>
+        </div>
+        <div class="stat">
+          <div class="stat-title">Area Total</div>
+          <div class="stat-value">{{country().area | number}}</div>
+          <div class="stat-desc">↘︎ 90 (14%)</div>
+        </div>
+      </div> -->
+    </section>
