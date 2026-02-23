@@ -17,6 +17,8 @@ export class CountryMapper {
       languages : restCountry.languages.spa ?? 'No proporcionado',
       area: restCountry.area,
       fifa: restCountry.fifa,
+      coatOfArms: restCountry.coatOfArms.svg,
+      continents: restCountry.continents
     }
   }
 

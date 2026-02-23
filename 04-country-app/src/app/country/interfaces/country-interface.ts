@@ -10,5 +10,7 @@ export interface Country {
   nameCountry : string,
   languages : string,
   area: number,
-  fifa: string
+  fifa: string,
+  coatOfArms: string,
+  continents: string[]
 }
